@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popcorn Bar Events | Barras Gourmet de Palomitas</title>
+    <title>Don Pepe Popcorn | Barras Gourmet de Palomitas</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome para iconos -->
@@ -35,31 +35,27 @@
     <!-- HEADER / NAVEGACIÓN -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-popcorn-gold/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logotipo -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="cambiarVista('inicio')">
                 <div class="bg-popcorn-gold text-popcorn-brown p-2.5 rounded-2xl shadow-sm text-xl font-black">
                     <i class="fas fa-box-open"></i>
                 </div>
                 <div>
-                    <span class="text-xl font-black tracking-wider uppercase text-popcorn-brown">Popcorn Bar</span>
+                    <span class="text-xl font-black tracking-wider uppercase text-popcorn-brown">Don Pepe Popcorn</span>
                     <span class="block text-xs text-popcorn-amber font-semibold">Barras Gourmet para Eventos</span>
                 </div>
             </div>
 
-            <!-- Menú de Escritorio -->
             <nav class="hidden md:flex items-center space-x-8 font-medium">
                 <button onclick="cambiarVista('inicio')" class="hover:text-popcorn-amber transition">Inicio</button>
                 <button onclick="cambiarVista('sabores')" class="hover:text-popcorn-amber transition">Sabores y Barras</button>
                 <button onclick="cambiarVista('contacto')" class="bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold px-5 py-2.5 rounded-full shadow-md transition transform hover:scale-105">Cotizar Evento</button>
             </nav>
 
-            <!-- Botón Menú Móvil -->
             <button id="mobile-menu-btn" class="md:hidden text-2xl text-popcorn-brown focus:outline-none" aria-label="Abrir Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
-        <!-- Menú Desplegable Móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-popcorn-gold/20 px-4 pt-3 pb-5 space-y-3 shadow-lg">
             <button onclick="cambiarVista('inicio'); toggleMobileMenu();" class="block w-full text-left font-semibold py-1">Inicio</button>
             <button onclick="cambiarVista('sabores'); toggleMobileMenu();" class="block w-full text-left font-semibold py-1">Sabores y Barras</button>
@@ -67,23 +63,21 @@
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL (SPA) -->
     <main class="flex-grow">
 
-        <!-- ================= VISTA 1: INICIO (Con Sobre Mí, Ideas y Modelos de 6 fotos, y FAQ) ================= -->
+        <!-- ================= VISTA 1: INICIO ================= -->
         <div id="vista-inicio" class="view-section">
             
-            <!-- HERO SECTION -->
             <section class="relative bg-gradient-to-b from-popcorn-soft via-popcorn-cream to-white py-20 lg:py-28">
                 <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
                     <span class="inline-block bg-popcorn-gold/20 text-popcorn-amber font-bold text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-sm">
-                        🍿 Experiencias crujientes y memorables en vivo
+                        🍿 Experiencias crujientes y memorables
                     </span>
                     <h1 class="text-4xl sm:text-6xl font-black text-popcorn-brown leading-tight">
                         Lleva una <span class="text-popcorn-amber">Barra Gourmet de Palomitas</span> a tu evento
                     </h1>
                     <p class="text-lg text-popcorn-brown/80 max-w-2xl mx-auto leading-relaxed">
-                        Sorprende a tus invitados con estaciones móviles elegantes, servicio de atención en vivo y una selección irresistible de sabores artesanales.
+                        Sorprende a tus invitados con estaciones elegantes y una selección irresistible de sabores artesanales.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
                         <button onclick="cambiarVista('contacto')" class="w-full sm:w-auto bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition transform hover:scale-105">
@@ -96,184 +90,106 @@
                 </div>
             </section>
 
-            <!-- 1. SECCIÓN: SOBRE MÍ / NUESTRA ESENCIA -->
-            <section class="py-16 bg-white border-t border-popcorn-gold/10">
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="space-y-4">
-                            <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Sobre Mí / Nuestra Esencia</span>
-                            <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown">Pasión por crear momentos crujientes y divertidos</h2>
-                            <p class="text-popcorn-brown/80 leading-relaxed">
-                                Hola, nos encanta transformar un snack tradicional en el centro de atención de cualquier celebración. Cuidamos cada detalle visual y de sabor para que tu evento sea inolvidable.
-                            </p>
-                            <p class="text-popcorn-brown/80 leading-relaxed">
-                                Trabajamos con estaciones móviles adaptables a cualquier espacio, brindando un servicio cálido, elegante y completamente enfocado en consentir a tus invitados en vivo.
-                            </p>
-                        </div>
-                        <div class="bg-popcorn-soft rounded-3xl p-8 shadow-inner text-center grid grid-cols-2 gap-6">
-                            <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
-                                <i class="fas fa-glass-cheers text-4xl text-popcorn-amber mb-2"></i>
-                                <h4 class="font-black text-popcorn-brown text-2xl">+400</h4>
-                                <p class="text-xs text-popcorn-brown/70 font-medium">Eventos Exitosos</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
-                                <i class="fas fa-seedling text-4xl text-popcorn-gold mb-2"></i>
-                                <h4 class="font-black text-popcorn-brown text-2xl">100%</h4>
-                                <p class="text-xs text-popcorn-brown/70 font-medium">Artesanales</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 2. SECCIÓN: IDEAS Y MODELOS (6 FOTOS DE EJEMPLO) -->
-            <section class="py-16 bg-popcorn-cream">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-3xl mx-auto mb-12">
-                        <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-white px-3 py-1 rounded-full shadow-sm">Inspiración</span>
-                        <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown mt-2 mb-3">Ideas y Modelos de Barras</h2>
-                        <p class="text-popcorn-brown/80">Conoce algunos de nuestros montajes y estilos favoritos para eventos:</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        <!-- Foto 1 -->
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-popcorn-gold/20">
-                            <div class="h-56 bg-popcorn-soft flex items-center justify-center text-popcorn-amber">
-                                <i class="fas fa-store text-5xl"></i>
-                            </div>
-                            <div class="p-5 text-center space-y-2">
-                                <h3 class="font-bold text-popcorn-brown text-lg">Carrito Estilo Vintage</h3>
-                                <p class="text-xs text-popcorn-brown/70">Ideal para bodas, jardines y eventos al aire libre.</p>
-                                <button onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-1 block mx-auto">Cotizar este estilo</button>
-                            </div>
-                        </div>
-                        <!-- Foto 2 -->
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-popcorn-gold/20">
-                            <div class="h-56 bg-popcorn-soft flex items-center justify-center text-popcorn-amber">
-                                <i class="fas fa-concierge-bell text-5xl"></i>
-                            </div>
-                            <div class="p-5 text-center space-y-2">
-                                <h3 class="font-bold text-popcorn-brown text-lg">Barra Fina Minimalista</h3>
-                                <p class="text-xs text-popcorn-brown/70">Diseño elegante adaptado para salones y XV años.</p>
-                                <button onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-1 block mx-auto">Cotizar este estilo</button>
-                            </div>
-                        </div>
-                        <!-- Foto 3 -->
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-popcorn-gold/20">
-                            <div class="h-56 bg-popcorn-soft flex items-center justify-center text-popcorn-amber">
-                                <i class="fas fa-gifts text-5xl"></i>
-                            </div>
-                            <div class="p-5 text-center space-y-2">
-                                <h3 class="font-bold text-popcorn-brown text-lg">Estación Temática Infantil</h3>
-                                <p class="text-xs text-popcorn-brown/70">Colores vibrantes y conos divertidos para fiestas de cumpleaños.</p>
-                                <button onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-1 block mx-auto">Cotizar este estilo</button>
-                            </div>
-                        </div>
-                        <!-- Foto 4 -->
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-popcorn-gold/20">
-                            <div class="h-56 bg-popcorn-soft flex items-center justify-center text-popcorn-amber">
-                                <i class="fas fa-briefcase text-5xl"></i>
-                            </div>
-                            <div class="p-5 text-center space-y-2">
-                                <h3 class="font-bold text-popcorn-brown text-lg">Barra Corporativa & Branding</h3>
-                                <p class="text-xs text-popcorn-brown/70">Empaques personalizados con el logotipo de tu empresa.</p>
-                                <button onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-1 block mx-auto">Cotizar este estilo</button>
-                            </div>
-                        </div>
-                        <!-- Foto 5 -->
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-popcorn-gold/20">
-                            <div class="h-56 bg-popcorn-soft flex items-center justify-center text-popcorn-amber">
-                                <i class="fas fa-glass-cheers text-5xl"></i>
-                            </div>
-                            <div class="p-5 text-center space-y-2">
-                                <h3 class="font-bold text-popcorn-brown text-lg">Edición Tornaboda Nocturna</h3>
-                                <p class="text-xs text-popcorn-brown/70">El snack perfecto y calientito para revivir la fiesta en la madrugada.</p>
-                                <button onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-1 block mx-auto">Cotizar este estilo</button>
-                            </div>
-                        </div>
-                        <!-- Foto 6 -->
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-popcorn-gold/20">
-                            <div class="h-56 bg-popcorn-soft flex items-center justify-center text-popcorn-amber">
-                                <i class="fas fa-heart text-5xl"></i>
-                            </div>
-                            <div class="p-5 text-center space-y-2">
-                                <h3 class="font-bold text-popcorn-brown text-lg">Estación Romántica / Aniversarios</h3>
-                                <p class="text-xs text-popcorn-brown/70">Detalles florales y mezcla especial de caramelo y chocolate.</p>
-                                <button onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-1 block mx-auto">Cotizar este estilo</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. SECCIÓN: FAQ (PREGUNTAS FRECUENTES) -->
             <section class="py-16 bg-white border-t border-popcorn-gold/10">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
                         <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Resolvemos tus dudas</span>
-                        <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown mt-2 mb-3">Preguntas Frecuentes</h2>
-                        <p class="text-popcorn-brown/80">Todo lo que necesitas saber antes de contratar tu barra de palomitas.</p>
+                        <h2 class="text-3xl font-black text-popcorn-brown mt-2 mb-3">Preguntas Frecuentes</h2>
                     </div>
-
                     <div class="space-y-4">
                         <details class="bg-popcorn-cream p-5 rounded-2xl shadow-sm cursor-pointer border border-popcorn-gold/20">
                             <summary class="font-bold text-popcorn-brown text-lg">¿Con cuánta anticipación debo apartar la fecha?</summary>
-                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">Te recomendamos apartar con al menos 1 a 2 semanas de anticipación para garantizar disponibilidad en tu evento.</p>
+                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">Te recomendamos apartar con al menos 1 a 2 semanas de anticipación para garantizar disponibilidad.</p>
                         </details>
                         <details class="bg-popcorn-cream p-5 rounded-2xl shadow-sm cursor-pointer border border-popcorn-gold/20">
-                            <summary class="font-bold text-popcorn-brown text-lg">¿El servicio incluye personal atendiendo la barra?</summary>
-                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">¡Sí! Todos nuestros paquetes incluyen personal uniformado y capacitado que se encarga del montaje, la atención amable a tus invitados y el desmontaje final.</p>
-                        </details>
-                        <details class="bg-popcorn-cream p-5 rounded-2xl shadow-sm cursor-pointer border border-popcorn-gold/20">
-                            <summary class="font-bold text-popcorn-brown text-lg">¿Qué espacio físico y requerimientos se necesitan?</summary>
-                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">Requerimos un espacio aproximado de 2 x 1.5 metros para nuestra barra móvil y acceso a un contacto tomacorriente estándar cercano.</p>
-                        </details>
-                        <details class="bg-popcorn-cream p-5 rounded-2xl shadow-sm cursor-pointer border border-popcorn-gold/20">
-                            <summary class="font-bold text-popcorn-brown text-lg">¿Se pueden personalizar los empaques o vasos?</summary>
-                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">¡Claro que sí! Ofrecemos opciones de personalización con nombres, fechas de tu evento o logotipos corporativos en los conos o cajitas.</p>
+                            <summary class="font-bold text-popcorn-brown text-lg">¿Se pueden personalizar los empaques?</summary>
+                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">¡Claro que sí! Ofrecemos opciones de personalización para tu evento.</p>
                         </details>
                     </div>
                 </div>
             </section>
-
         </div>
 
         <!-- ================= VISTA 2: SABORES Y BARRAS ================= -->
         <section id="vista-sabores" class="view-section hidden py-16 bg-white min-h-[80vh]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Menú Gourmet</span>
+                    <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Catálogo Gourmet</span>
                     <h2 class="text-3xl sm:text-5xl font-black text-popcorn-brown mt-2 mb-4">Sabores y Combinaciones</h2>
-                    <p class="text-popcorn-brown/80">Disfruta de nuestras opciones artesanales preparadas especialmente para tus invitados:</p>
+                    <p class="text-popcorn-brown/80">Conoce nuestra amplia variedad de palomitas empacadas y listas para tu evento:</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div class="bg-popcorn-cream rounded-3xl p-6 shadow-sm border border-popcorn-gold/30 text-center space-y-3">
-                        <div class="bg-popcorn-amber text-white w-12 h-12 rounded-2xl mx-auto flex items-center justify-center text-xl font-black mb-4">
-                            <i class="fas fa-cookie"></i>
+                <!-- Grilla de Imágenes de Sabores -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-16">
+                    
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="chipotle.jpg" alt="Chipotle" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Chipotle</h3>
                         </div>
-                        <h3 class="font-black text-xl text-popcorn-brown">Caramelo Artesanal</h3>
-                        <p class="text-sm text-popcorn-brown/70 leading-relaxed">Baño crujiente de caramelo tradicional preparado a fuego lento con un toque de mantequilla fina.</p>
                     </div>
-                    <div class="bg-popcorn-cream rounded-3xl p-6 shadow-sm border border-popcorn-gold/30 text-center space-y-3">
-                        <div class="bg-popcorn-amber text-white w-12 h-12 rounded-2xl mx-auto flex items-center justify-center text-xl font-black mb-4">
-                            <i class="fas fa-cheese"></i>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="habanero.jpg" alt="Habanero" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Habanero</h3>
                         </div>
-                        <h3 class="font-black text-xl text-popcorn-brown">Queso Cheddar Intenso</h3>
-                        <p class="text-sm text-popcorn-brown/70 leading-relaxed">El clásico sabor salado con auténtico polvo de queso cheddar importado que fascina a todos.</p>
                     </div>
-                    <div class="bg-popcorn-cream rounded-3xl p-6 shadow-sm border border-popcorn-gold/30 text-center space-y-3">
-                        <div class="bg-popcorn-amber text-white w-12 h-12 rounded-2xl mx-auto flex items-center justify-center text-xl font-black mb-4">
-                            <i class="fas fa-fire"></i>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="doritos-incognita.jpg" alt="Doritos Incógnita" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Doritos Incógnita</h3>
                         </div>
-                        <h3 class="font-black text-xl text-popcorn-brown">Mantequilla y Chilito</h3>
-                        <p class="text-sm text-popcorn-brown/70 leading-relaxed">La combinación perfecta entre la suavidad de la mantequilla caliente y un toque picante y cítrico.</p>
                     </div>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="naturales.jpg" alt="Naturales" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Naturales</h3>
+                        </div>
+                    </div>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="mantequilla.jpg" alt="Mantequilla" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Mantequilla</h3>
+                        </div>
+                    </div>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="flaminghot.jpg" alt="Flaming Hot" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Flaming Hot</h3>
+                        </div>
+                    </div>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="queso-picoso.jpg" alt="Queso Picoso" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Queso Picoso</h3>
+                        </div>
+                    </div>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="queso-sanor-nachos.jpg" alt="Queso Sabor Nachos" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Queso Sabor Nachos</h3>
+                        </div>
+                    </div>
+
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-md transition">
+                        <img src="queso-sabor-pizzerola.jpg" alt="Queso Sabor Pizzerola" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center">
+                            <h3 class="font-black text-xl text-popcorn-brown">Queso Sabor Pizzerola</h3>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="text-center">
                     <button onclick="cambiarVista('contacto')" class="bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition">
-                        Cotizar mi barra personalizada
+                        Cotizar mi combinación favorita
                     </button>
                 </div>
             </div>
@@ -283,9 +199,8 @@
         <section id="vista-contacto" class="view-section hidden py-16 bg-white min-h-[80vh]">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-10">
-                    <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Reserva tu fecha</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown mt-2 mb-3">Cotiza tu Barra de Palomitas</h2>
-                    <p class="text-popcorn-brown/80">Completa los datos de tu evento y te atenderemos de inmediato por WhatsApp.</p>
+                    <h2 class="text-3xl font-black text-popcorn-brown mt-2 mb-3">Cotiza tus Palomitas</h2>
+                    <p class="text-popcorn-brown/80">Completa los datos y te atenderemos por WhatsApp.</p>
                 </div>
 
                 <form onsubmit="enviarWhatsApp(event)" class="bg-popcorn-cream p-8 rounded-3xl shadow-lg border border-popcorn-gold/30 space-y-6">
@@ -302,15 +217,23 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
+                            <label class="block text-sm font-bold text-popcorn-brown mb-2">Tipo de Evento:</label>
+                            <select id="tipo-evento" class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber">
+                                <option value="Boda">Boda</option>
+                                <option value="Cumpleaños">Cumpleaños</option>
+                                <option value="Corporativo">Evento Corporativo</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
                         <div>
                             <label class="block text-sm font-bold text-popcorn-brown mb-2">Número Estimado de Invitados:</label>
-                            <input type="number" id="invitados" required class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber" placeholder="Ej. 100">
+                            <input type="number" id="invitados" required class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-sm font-bold text-popcorn-brown mb-2">Sabores o requerimientos especiales:</label>
-                        <textarea id="detalles" rows="3" class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber" placeholder="Ej. Me interesa barra de caramelo y queso cheddar para una boda de 150 personas..."></textarea>
+                        <textarea id="detalles" rows="3" class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber"></textarea>
                     </div>
 
                     <button type="submit" class="w-full bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold py-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 text-lg">
@@ -325,61 +248,17 @@
 
     <!-- FOOTER -->
     <footer class="bg-popcorn-brown text-popcorn-cream py-10 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left space-y-4 sm:space-y-0">
-            <div>
-                <span class="text-xl font-black tracking-wider text-white uppercase">Popcorn Bar Events</span>
-                <p class="text-xs text-popcorn-cream/70 mt-1">Llevando el sabor y la diversión crujiente a cada celebración.</p>
-            </div>
-            <div class="flex space-x-6 text-xl">
-                <a href="#" class="hover:text-popcorn-gold transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-popcorn-gold transition"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="hover:text-popcorn-gold transition"><i class="fab fa-whatsapp"></i></a>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <span class="text-xl font-black tracking-wider text-white uppercase">Don Pepe Popcorn</span>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP (Actualizado al 5539494722) -->
-    <a href="https://wa.me/5215539494722?text=¡Hola!%20Me%20interesa%20cotizar%20una%20barra%20de%20palomitas%20para%20mi%20evento." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition transform hover:scale-110" aria-label="WhatsApp">
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/5215539494722?text=¡Hola!%20Me%20interesa%20cotizar%20palomitas." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition transform hover:scale-110" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JAVASCRIPT DE CONTROL UI Y LOCALSTORAGE -->
+    <!-- SCRIPTS -->
     <script>
         function cambiarVista(nombreVista) {
-            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
-            const vistaActiva = document.getElementById(`vista-${nombreVista}`);
-            if (vistaActiva) {
-                vistaActiva.classList.remove('hidden');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
-
-        function enviarWhatsApp(e) {
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const telefono = document.getElementById('telefono').value;
-            const tipo = document.getElementById('tipo-evento').value;
-            const invitados = document.getElementById('invitados').value;
-            const detalles = document.getElementById('detalles').value;
-
-            // Guardar prospecto en localStorage para revisión posterior
-            const prospecto = { nombre, telefono, tipo, invitados, detalles, fecha: new Date().toISOString() };
-            const prospectosGuardados = JSON.parse(localStorage.getItem('prospectos_palomitas') || '[]');
-            prospectosGuardados.push(prospecto);
-            localStorage.setItem('prospectos_palomitas', JSON.stringify(prospectosGuardados));
-
-            const mensaje = `¡Hola! Me gustaría cotizar una barra de palomitas.%0A%0A*Nombre:* ${nombre}%0A*Teléfono:* ${telefono}%0A*Tipo de Evento:* ${tipo}%0A*Invitados:* ${invitados}%0A*Detalles:* ${detalles}`;
-            
-            // Envío al número 5539494722 (con código de país 521 para México)
-            window.open(`https://wa.me/5215539494722?text=${mensaje}`, '_blank');
-        }
-    </script>
-</body>
-</html>
+            document.querySelectorAll('.
