@@ -94,7 +94,7 @@
                 </div>
             </section>
 
-            <!-- 1. SECCIÓN: SOBRE MÍ / NUESTRA ESENCIA -->
+            <!-- SECCIÓN: SOBRE MÍ / NUESTRA ESENCIA -->
             <section class="py-16 bg-white border-t border-popcorn-gold/10">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -124,7 +124,7 @@
                 </div>
             </section>
 
-            <!-- 2. SECCIÓN: IDEAS Y MODALIDADES DE SERVICIO -->
+            <!-- SECCIÓN: MODALIDADES DE SERVICIO -->
             <section class="py-16 bg-popcorn-cream">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-12">
@@ -140,7 +140,7 @@
                             </div>
                             <h3 class="font-bold text-popcorn-brown text-lg">Bolsitas Individuales</h3>
                             <p class="text-xs text-popcorn-brown/70">Bolsas selladas con etiqueta de Don Pepe Popcorn, listas para mesas de dulces o recuerdos.</p>
-                            <button type="button" onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto">Cotizar opción →</button>
+                            <button type="button" onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto cursor-pointer">Cotizar opción →</button>
                         </div>
 
                         <div class="bg-white rounded-2xl p-6 shadow-md border border-popcorn-gold/20 text-center space-y-3">
@@ -149,7 +149,7 @@
                             </div>
                             <h3 class="font-bold text-popcorn-brown text-lg">Barra de Palomitas</h3>
                             <p class="text-xs text-popcorn-brown/70">Estación completa con tus sabores favoritos para que tus invitados se sirvan al gusto.</p>
-                            <button type="button" onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto">Cotizar opción →</button>
+                            <button type="button" onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto cursor-pointer">Cotizar opción →</button>
                         </div>
 
                         <div class="bg-white rounded-2xl p-6 shadow-md border border-popcorn-gold/20 text-center space-y-3">
@@ -158,13 +158,13 @@
                             </div>
                             <h3 class="font-bold text-popcorn-brown text-lg">Paquetes Mixtos</h3>
                             <p class="text-xs text-popcorn-brown/70">Combina sabores clásicos con nuestras especialidades picositas (Habanero, Flaming Hot, Quesos).</p>
-                            <button type="button" onclick="cambiarVista('sabores')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto">Ver sabores →</button>
+                            <button type="button" onclick="cambiarVista('sabores')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto cursor-pointer">Ver sabores →</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. SECCIÓN: FAQ (PREGUNTAS FRECUENTES) -->
+            <!-- SECCIÓN: FAQ -->
             <section class="py-16 bg-white border-t border-popcorn-gold/10">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
@@ -308,45 +308,4 @@
     </footer>
 
     <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-    <a href="https://wa.me/5215539494722?text=¡Hola!%20Me%20interesa%20cotizar%20una%20barra%20de%20palomitas%20para%20mi%20evento." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition transform hover:scale-110" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- JAVASCRIPT DE CONTROL UI Y LOCALSTORAGE -->
-    <script>
-        function cambiarVista(nombreVista) {
-            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
-            const vistaActiva = document.getElementById(`vista-${nombreVista}`);
-            if (vistaActiva) {
-                vistaActiva.classList.remove('hidden');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        function closeMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if(menu) menu.classList.add('hidden');
-        }
-
-        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
-
-        function enviarWhatsApp(e) {
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const telefono = document.getElementById('telefono').value;
-            const modalidad = document.getElementById('modalidad').value;
-            const cantidad = document.getElementById('cantidad').value;
-            const detalles = document.getElementById('detalles').value;
-
-            // Guardar prospecto en localStorage para revisión posterior
-            const prospecto = { nombre, telefono, modalidad, cantidad, detalles, fecha: new Date().toISOString() };
-            const prospectosGuardados = JSON.parse(localStorage.getItem('prospectos_palomitas') || '[]');
-            prospectosGuardados.push(prospecto);
-            localStorage.setItem('prospectos_palomitas', JSON.stringify(prospectosGuardados));
-
-            const mensaje = `¡Hola Don Pepe Popcorn! Me gustaría hacer un pedido:\n\n*Nombre:* ${nombre}\n*Teléfono:* ${
+    <a href="https://wa.me/5215539494722?text=¡Hola!%20Me%20interesa%20cotizar%20una%20barra%20de%20palomitas%20para%20mi%20evento." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items
