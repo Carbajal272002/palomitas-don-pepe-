@@ -1,698 +1,352 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deliush Bakes | Repostería Fina y Pan Artesanal</title>
-
-    <!-- Tailwind CSS (CDN) -->
+    <title>Don Pepe Popcorn | Barras Gourmet de Palomitas</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Configuración del tema y colores personalizados -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'deliush-cream': '#FAF6F0',
-                        'deliush-pink': '#F4E0E1',
-                        'deliush-rose': '#E8A5A5',
-                        'deliush-accent': '#C87D75',
-                        'deliush-brown': '#4A3525',
-                        'deliush-mint': '#CDEAD9',
-                        'deliush-purple': '#E8D3F3'
-                    },
-                    fontFamily: {
-                        'sans': ['Segoe UI', 'Roboto', 'sans-serif'],
+                        popcorn: {
+                            cream: '#FFFBF0',
+                            gold: '#EAB308',
+                            amber: '#D97706',
+                            brown: '#451A03',
+                            accent: '#B45309',
+                            soft: '#FEF3C7'
+                        }
                     }
                 }
             }
         }
     </script>
+    <style>
+        .view-section { transition: opacity 0.3s ease-in-out; }
+    </style>
 </head>
-<body class="bg-deliush-cream text-deliush-brown font-sans antialiased flex flex-col min-h-screen">
+<body class="bg-popcorn-cream text-popcorn-brown font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- NAV BAR / ENCABEZADO -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-popcorn-gold/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo oficial -->
-            <button onclick="cambiarVista('inicio')" class="flex items-center space-x-3 focus:outline-none cursor-pointer">
-                <img src="logo.jpg" alt="Deliush Bakes Logo" class="h-14 w-14 rounded-full object-cover border border-deliush-pink shadow-sm">
-                <div class="flex flex-col text-left">
-                    <span class="text-xl sm:text-2xl font-extrabold text-deliush-accent tracking-wide">Deliush Bakes</span>
-                    <span class="text-[10px] sm:text-xs text-deliush-brown/70 font-medium tracking-wider uppercase">Repostería Fina & Pan Artesanal</span>
+            <!-- Logotipo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="cambiarVista('inicio')">
+                <img src="1_2.png" alt="Don Pepe Popcorn Logo" class="h-14 w-14 rounded-full object-cover border border-popcorn-gold shadow-sm">
+                <div>
+                    <span class="text-xl font-black tracking-wider uppercase text-popcorn-brown">Don Pepe Popcorn</span>
+                    <span class="block text-xs text-popcorn-amber font-semibold">Barras Gourmet para Eventos</span>
                 </div>
-            </button>
-            
-            <!-- Menú Navegación Principal: Solo "Celebraciones" y "Galerías" -->
-            <nav id="desktop-nav" class="hidden md:flex items-center space-x-8 text-base font-bold text-deliush-brown">
-                <button onclick="cambiarVista('inicio')" class="hover:text-deliush-rose transition focus:outline-none cursor-pointer">Inicio</button>
-                <button onclick="cambiarVista('celebraciones')" class="text-deliush-accent hover:text-deliush-rose transition focus:outline-none cursor-pointer">Celebraciones</button>
-                <button onclick="cambiarVista('galerias')" class="text-deliush-accent hover:text-deliush-rose transition focus:outline-none cursor-pointer">Galerías</button>
-                <button onclick="cambiarVista('contacto')" class="hover:text-deliush-rose transition focus:outline-none text-sm font-semibold cursor-pointer">Contacto</button>
-            </nav>
-
-            <!-- Iconos Redes Sociales -->
-            <div class="hidden sm:flex items-center space-x-4">
-                <a href="https://www.instagram.com/deliushbakes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-deliush-accent hover:text-deliush-rose text-2xl transition">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/524421794529" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="text-deliush-accent hover:text-deliush-rose text-2xl transition">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
             </div>
 
+            <!-- Menú de Escritorio -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium">
+                <button type="button" onclick="cambiarVista('inicio')" class="hover:text-popcorn-amber transition cursor-pointer">Inicio</button>
+                <button type="button" onclick="cambiarVista('sabores')" class="hover:text-popcorn-amber transition cursor-pointer">Sabores y Barras</button>
+                <button type="button" onclick="cambiarVista('contacto')" class="bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold px-5 py-2.5 rounded-full shadow-md transition transform hover:scale-105 cursor-pointer">Cotizar Pedido</button>
+            </nav>
+
             <!-- Botón Menú Móvil -->
-            <button id="mobile-menu-btn" class="md:hidden text-2xl text-deliush-brown focus:outline-none" aria-label="Abrir Menú">
+            <button type="button" id="mobile-menu-btn" class="md:hidden text-2xl text-popcorn-brown focus:outline-none" aria-label="Abrir Menú">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
         <!-- Menú Desplegable Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-deliush-pink px-4 pt-2 pb-4 space-y-2">
-            <button onclick="cambiarVista('inicio'); toggleMobileMenu();" class="block w-full text-left text-deliush-brown hover:text-deliush-accent font-medium transition py-1">Inicio</button>
-            <button onclick="cambiarVista('celebraciones'); toggleMobileMenu();" class="block w-full text-left text-deliush-accent font-bold transition py-1">Celebraciones</button>
-            <button onclick="cambiarVista('galerias'); toggleMobileMenu();" class="block w-full text-left text-deliush-accent font-bold transition py-1">Galerías</button>
-            <button onclick="cambiarVista('contacto'); toggleMobileMenu();" class="block w-full text-left text-deliush-brown hover:text-deliush-accent font-medium transition py-1">Contacto</button>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-popcorn-gold/20 px-4 pt-3 pb-5 space-y-3 shadow-lg">
+            <button type="button" onclick="cambiarVista('inicio'); closeMobileMenu();" class="block w-full text-left font-semibold py-1">Inicio</button>
+            <button type="button" onclick="cambiarVista('sabores'); closeMobileMenu();" class="block w-full text-left font-semibold py-1">Sabores y Barras</button>
+            <button type="button" onclick="cambiarVista('contacto'); closeMobileMenu();" class="block w-full text-left text-popcorn-amber font-bold py-1">Cotizar Pedido</button>
         </div>
     </header>
 
+    <!-- CONTENIDO PRINCIPAL (SPA) -->
     <main class="flex-grow">
 
-        <!-- ================= VISTA 1: INICIO (PÁGINA PRINCIPAL) ================= -->
-        <!-- Contiene: Hero, Sobre mí, Ideas y modelos, y FAQ -->
+        <!-- ================= VISTA 1: INICIO ================= -->
         <div id="vista-inicio" class="view-section">
             
-            <!-- 1. HERO -->
-            <section class="relative bg-gradient-to-b from-deliush-purple/30 via-deliush-pink/30 to-deliush-cream py-16 lg:py-24">
+            <!-- HERO SECTION -->
+            <section class="relative bg-gradient-to-b from-popcorn-soft via-popcorn-cream to-white py-20 lg:py-28">
                 <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
-                    <span class="inline-block bg-deliush-pink text-deliush-accent font-semibold text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-sm">
-                        Repostería Fina y Pan Artesanal
+                    <span class="inline-block bg-popcorn-gold/20 text-popcorn-amber font-bold text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-sm">
+                        🍿 Experiencias crujientes y memorables en vivo
                     </span>
-                    <h1 class="text-4xl sm:text-6xl font-extrabold text-deliush-brown leading-tight">
-                        Creaciones dulces hechas con pasión e imaginación
+                    <h1 class="text-4xl sm:text-6xl font-black text-popcorn-brown leading-tight">
+                        Lleva el sabor de <span class="text-popcorn-amber">Don Pepe Popcorn</span> a tu evento
                     </h1>
-                    <p class="text-lg text-deliush-brown/80 max-w-2xl mx-auto">
-                        En Deliush Bakes convertimos cada celebración en una experiencia inolvidable con sabor artesanal único.
+                    <p class="text-lg text-popcorn-brown/80 max-w-2xl mx-auto leading-relaxed">
+                        Sorprende a tus invitados con nuestras barras móviles, bolsitas personalizadas y una selección irresistible de sabores gourmet dulces, salados y picositos.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                        <button onclick="cambiarVista('celebraciones')" class="w-full sm:w-auto bg-deliush-accent hover:bg-deliush-rose text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition transform hover:-scale-105 cursor-pointer">
-                            Explorar Celebraciones
+                        <button type="button" onclick="cambiarVista('sabores')" class="w-full sm:w-auto bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition transform hover:scale-105 cursor-pointer">
+                            Ver Sabores Disponibles
                         </button>
-                        <button onclick="cambiarVista('galerias')" class="w-full sm:w-auto bg-white border border-deliush-accent text-deliush-accent hover:bg-deliush-pink/30 font-bold py-3.5 px-8 rounded-full shadow-md transition cursor-pointer">
-                            Ver Galerías
+                        <button type="button" onclick="cambiarVista('contacto')" class="w-full sm:w-auto bg-white border-2 border-popcorn-gold text-popcorn-amber hover:bg-popcorn-soft font-bold py-3.5 px-8 rounded-full shadow-sm transition cursor-pointer">
+                            Cotizar por WhatsApp
                         </button>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. SECCIÓN: SOBRE MÍ -->
-            <section id="sobre-mi" class="py-16 bg-white border-t border-deliush-pink/40">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div class="relative flex justify-center">
-                            <div class="absolute -top-4 -left-4 w-72 h-72 bg-deliush-mint rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
-                            <img src="banner-logo.jpeg" alt="Deliush Bakes Repostería Fina" class="relative rounded-3xl shadow-xl w-full max-w-md h-auto object-contain bg-deliush-purple/20 p-2">
+            <!-- 1. SECCIÓN: SOBRE MÍ / NUESTRA ESENCIA -->
+            <section class="py-16 bg-white border-t border-popcorn-gold/10">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-4">
+                            <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Nuestra Esencia</span>
+                            <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown">Pasión por crear momentos crujientes y divertidos</h2>
+                            <p class="text-popcorn-brown/80 leading-relaxed">
+                                En <strong>Don Pepe Popcorn</strong> transformamos un snack clásico en el centro de atención de cualquier reunión o festejo. Cuidamos cada detalle de frescura y sazón para que tus invitados disfruten al máximo.
+                            </p>
+                            <p class="text-popcorn-brown/80 leading-relaxed">
+                                Contamos con estaciones adaptables y entregas de paquetes de bolsitas individuales listas para repartir en fiestas, reuniones, eventos corporativos y mesas de snacks.
+                            </p>
                         </div>
-                        <div class="space-y-6">
-                            <span class="text-xs font-bold text-deliush-accent uppercase tracking-widest bg-deliush-pink/60 px-3 py-1 rounded-full">Nuestra Historia</span>
-                            <h2 class="text-3xl sm:text-4xl font-bold text-deliush-brown">
-                                Sobre Mí
-                            </h2>
-                            <div class="w-16 h-1 bg-deliush-accent rounded"></div>
-                            <p class="text-deliush-brown/80 leading-relaxed text-lg">
-                                ¡Hola! Soy la mente y el corazón detrás de <strong>Deliush Bakes</strong>. Mi pasión por la repostería fina y el pan artesanal nació del deseo de convertir momentos especiales en experiencias memorables para el paladar y la vista.
-                            </p>
-                            <p class="text-deliush-brown/80 leading-relaxed">
-                                Diseñamos piezas exclusivas que reflejan la esencia de cada celebración, seleccionando rigurosamente cada ingrediente para garantizar frescura y calidad superior.
-                            </p>
+                        <div class="bg-popcorn-soft rounded-3xl p-8 shadow-inner text-center grid grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                                <i class="fas fa-fire-alt text-4xl text-popcorn-amber mb-2"></i>
+                                <h4 class="font-black text-popcorn-brown text-2xl">9+</h4>
+                                <p class="text-xs text-popcorn-brown/70 font-medium">Sabores Únicos</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                                <i class="fas fa-star text-4xl text-popcorn-gold mb-2"></i>
+                                <h4 class="font-black text-popcorn-brown text-2xl">100%</h4>
+                                <p class="text-xs text-popcorn-brown/70 font-medium">Calidad y Frescura</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. SECCIÓN: IDEAS Y MODELOS (6 fotos de ejemplo) -->
-            <section id="ideas-modelos" class="py-16 bg-deliush-cream border-t border-deliush-pink/40">
+            <!-- 2. SECCIÓN: IDEAS Y MODALIDADES DE SERVICIO -->
+            <section class="py-16 bg-popcorn-cream">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-12">
-                        <span class="text-xs font-bold text-deliush-accent uppercase tracking-widest bg-deliush-pink/60 px-3 py-1 rounded-full">Inspiración</span>
-                        <h2 class="text-3xl sm:text-4xl font-bold text-deliush-brown mt-2 mb-4">Ideas y Modelos</h2>
-                        <p class="text-deliush-brown/80">Descubre 6 ejemplos de nuestros estilos y diseños personalizados más populares:</p>
+                        <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-white px-3 py-1 rounded-full shadow-sm">Modalidades</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown mt-2 mb-3">Opciones para tu Evento</h2>
+                        <p class="text-popcorn-brown/80">Elige el formato que mejor se adapte a tus invitados:</p>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col border border-deliush-pink/50">
-                            <img src="pastel-cumpleanos.jpeg" alt="Ejemplo 1" class="h-64 w-full object-cover">
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-deliush-brown">Estilo Ilustrado & Festivo</h3>
-                                    <p class="text-deliush-brown/70 text-sm mt-1">Decoraciones a mano con mensajes personalizados y colores vibrantes.</p>
-                                </div>
-                                <button onclick="cambiarVista('contacto')" class="mt-4 text-deliush-accent font-semibold text-sm hover:underline text-left cursor-pointer">Cotizar estilo →</button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-popcorn-gold/20 text-center space-y-3">
+                            <div class="w-16 h-16 bg-popcorn-soft text-popcorn-amber rounded-2xl flex items-center justify-center mx-auto text-3xl">
+                                <i class="fas fa-shopping-bag"></i>
                             </div>
+                            <h3 class="font-bold text-popcorn-brown text-lg">Bolsitas Individuales</h3>
+                            <p class="text-xs text-popcorn-brown/70">Bolsas selladas con etiqueta de Don Pepe Popcorn, listas para mesas de dulces o recuerdos.</p>
+                            <button type="button" onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto">Cotizar opción →</button>
                         </div>
 
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col border border-deliush-pink/50">
-                            <img src="pastel-redvelvet.jpeg" alt="Ejemplo 2" class="h-64 w-full object-cover">
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-deliush-brown">Naked Cake Frutos Rojos</h3>
-                                    <p class="text-deliush-brown/70 text-sm mt-1">Capas suaves decoradas con fruta fresca y un toque gourmet.</p>
-                                </div>
-                                <button onclick="cambiarVista('contacto')" class="mt-4 text-deliush-accent font-semibold text-sm hover:underline text-left cursor-pointer">Cotizar estilo →</button>
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-popcorn-gold/20 text-center space-y-3">
+                            <div class="w-16 h-16 bg-popcorn-soft text-popcorn-amber rounded-2xl flex items-center justify-center mx-auto text-3xl">
+                                <i class="fas fa-store"></i>
                             </div>
+                            <h3 class="font-bold text-popcorn-brown text-lg">Barra de Palomitas</h3>
+                            <p class="text-xs text-popcorn-brown/70">Estación completa con tus sabores favoritos para que tus invitados se sirvan al gusto.</p>
+                            <button type="button" onclick="cambiarVista('contacto')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto">Cotizar opción →</button>
                         </div>
 
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col border border-deliush-pink/50">
-                            <img src="pastel-chanel.jpeg" alt="Ejemplo 3" class="h-64 w-full object-cover">
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-deliush-brown">Alta Costura & Lujo</h3>
-                                    <p class="text-deliush-brown/70 text-sm mt-1">Diseños elegantes inspirados en marcas y alta costura.</p>
-                                </div>
-                                <button onclick="cambiarVista('contacto')" class="mt-4 text-deliush-accent font-semibold text-sm hover:underline text-left cursor-pointer">Cotizar estilo →</button>
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-popcorn-gold/20 text-center space-y-3">
+                            <div class="w-16 h-16 bg-popcorn-soft text-popcorn-amber rounded-2xl flex items-center justify-center mx-auto text-3xl">
+                                <i class="fas fa-layer-group"></i>
                             </div>
-                        </div>
-
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col border border-deliush-pink/50">
-                            <img src="pastel-rosa.jpeg" alt="Ejemplo 4" class="h-64 w-full object-cover">
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-deliush-brown">Floral & Romántico</h3>
-                                    <p class="text-deliush-brown/70 text-sm mt-1">Acabados delicados con rosas y detalles aterciopelados.</p>
-                                </div>
-                                <button onclick="cambiarVista('contacto')" class="mt-4 text-deliush-accent font-semibold text-sm hover:underline text-left cursor-pointer">Cotizar estilo →</button>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col border border-deliush-pink/50">
-                            <img src="pastel-kawaii.jpeg" alt="Ejemplo 5" class="h-64 w-full object-cover">
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-deliush-brown">Kawaii & Temático</h3>
-                                    <p class="text-deliush-brown/70 text-sm mt-1">Personajes entrañables y paletas de colores tiernas.</p>
-                                </div>
-                                <button onclick="cambiarVista('contacto')" class="mt-4 text-deliush-accent font-semibold text-sm hover:underline text-left cursor-pointer">Cotizar estilo →</button>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col border border-deliush-pink/50">
-                            <img src="pastel-rey.jpeg" alt="Ejemplo 6" class="h-64 w-full object-cover">
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-deliush-brown">Corona & Primer Año</h3>
-                                    <p class="text-deliush-brown/70 text-sm mt-1">Estructuras imponentes con detalles dorados y elegancia real.</p>
-                                </div>
-                                <button onclick="cambiarVista('contacto')" class="mt-4 text-deliush-accent font-semibold text-sm hover:underline text-left cursor-pointer">Cotizar estilo →</button>
-                            </div>
+                            <h3 class="font-bold text-popcorn-brown text-lg">Paquetes Mixtos</h3>
+                            <p class="text-xs text-popcorn-brown/70">Combina sabores clásicos con nuestras especialidades picositas (Habanero, Flaming Hot, Quesos).</p>
+                            <button type="button" onclick="cambiarVista('sabores')" class="text-xs font-bold text-popcorn-amber hover:underline pt-2 block mx-auto">Ver sabores →</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 4. SECCIÓN: FAQ (Con anticipación de 1 a 2 semanas) -->
-            <section id="faq" class="py-16 bg-white border-t border-deliush-pink/40">
+            <!-- 3. SECCIÓN: FAQ (PREGUNTAS FRECUENTES) -->
+            <section class="py-16 bg-white border-t border-popcorn-gold/10">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-10">
-                        <span class="text-xs font-bold text-deliush-accent uppercase tracking-widest bg-deliush-pink/60 px-3 py-1 rounded-full">Resolvemos tus dudas</span>
-                        <h2 class="text-3xl font-bold text-deliush-brown mt-2">Preguntas Frecuentes (FAQ)</h2>
+                    <div class="text-center mb-12">
+                        <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Resolvemos tus dudas</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown mt-2 mb-3">Preguntas Frecuentes</h2>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="bg-deliush-cream rounded-2xl p-6 shadow-sm border border-deliush-pink/50">
-                            <h3 class="text-lg font-bold text-deliush-brown flex items-center">
-                                <i class="fas fa-clock text-deliush-accent mr-3"></i>
-                                ¿Con cuánta anticipación debo hacer mi pedido?
-                            </h3>
-                            <p class="mt-2 text-deliush-brown/80 text-sm leading-relaxed pl-7">
-                                Recomendamos agendar tu pedido con <strong>1 a 2 semanas de anticipación</strong>[cite: 17]. Para fechas festivas o eventos grandes, sugerimos apartar tu lugar con tiempo de margen.
-                            </p>
-                        </div>
-
-                        <div class="bg-deliush-cream rounded-2xl p-6 shadow-sm border border-deliush-pink/50">
-                            <h3 class="text-lg font-bold text-deliush-brown flex items-center">
-                                <i class="fas fa-truck text-deliush-accent mr-3"></i>
-                                ¿Entregan a domicilio?
-                            </h3>
-                            <p class="mt-2 text-deliush-brown/80 text-sm leading-relaxed pl-7">
-                                Ofrecemos servicio de entrega a domicilio con un costo adicional dependiendo de la zona de entrega, asegurando que tu pedido llegue en óptimas condiciones.
-                            </p>
-                        </div>
-
-                        <div class="bg-deliush-cream rounded-2xl p-6 shadow-sm border border-deliush-pink/50">
-                            <h3 class="text-lg font-bold text-deliush-brown flex items-center">
-                                <i class="fas fa-paint-brush text-deliush-accent mr-3"></i>
-                                ¿Cómo confirmo mi pedido personalizado?
-                            </h3>
-                            <p class="mt-2 text-deliush-brown/80 text-sm leading-relaxed pl-7">
-                                Una vez acordado el diseño, porciones y fecha a través de WhatsApp, solicitamos un anticipo del 50% para reservar tu lugar en agenda.
-                            </p>
-                        </div>
+                        <details class="bg-popcorn-cream p-5 rounded-2xl shadow-sm cursor-pointer border border-popcorn-gold/20">
+                            <summary class="font-bold text-popcorn-brown text-lg">¿Con cuánta anticipación debo hacer mi pedido?</summary>
+                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">Te recomendamos realizar tu pedido o apartar la fecha con al menos 1 a 2 semanas de anticipación.</p>
+                        </details>
+                        <details class="bg-popcorn-cream p-5 rounded-2xl shadow-sm cursor-pointer border border-popcorn-gold/20">
+                            <summary class="font-bold text-popcorn-brown text-lg">¿Puedo elegir varios sabores en mi pedido?</summary>
+                            <p class="mt-3 text-popcorn-brown/80 text-sm leading-relaxed">¡Por supuesto! Puedes armar tu combinación con todos nuestros sabores disponibles.</p>
+                        </details>
                     </div>
                 </div>
             </section>
-
         </div>
 
-
-        <!-- ================= VISTA 2: CELEBRACIONES (Estilo Lony Kuchen interactivo) ================= -->
-        <section id="vista-celebraciones" class="view-section hidden py-16 bg-white min-h-[80vh]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-10">
-                    <span class="text-xs font-bold text-deliush-accent uppercase tracking-widest bg-deliush-pink/50 px-3 py-1 rounded-full">Catálogo de Ocasiones</span>
-                    <h2 class="text-3xl sm:text-5xl font-bold text-deliush-brown mt-2 mb-4">Celebraciones</h2>
-                    <p class="text-deliush-brown/80">Selecciona el tipo de evento en el menú desplegable para ver nuestra propuesta especializada y diseños ideales:</p>
-                </div>
-
-                <!-- Barra Desplegable / Selector Interactivo -->
-                <div class="max-w-md mx-auto mb-12">
-                    <label for="select-celebracion" class="block text-sm font-semibold text-deliush-brown mb-2 text-center">Elige tu celebración:</label>
-                    <select id="select-celebracion" onchange="actualizarCelebracion()" class="w-full bg-deliush-cream border-2 border-deliush-accent/40 rounded-2xl px-4 py-3 text-deliush-brown font-bold focus:outline-none focus:ring-2 focus:ring-deliush-accent shadow-sm cursor-pointer">
-                        <option value="cumpleanos">Cumpleaños</option>
-                        <option value="san-valentin">San Valentín</option>
-                        <option value="halloween">Halloween</option>
-                        <option value="navidad">Navidad</option>
-                        <option value="baby-showers">Baby Showers</option>
-                        <option value="revelacion">Revelación de género</option>
-                        <option value="bodas">Bodas</option>
-                        <option value="xv-anos">XV Años</option>
-                        <option value="dia-madres">Día de las Madres</option>
-                        <option value="aniversarios">Aniversarios</option>
-                    </select>
-                </div>
-
-                <!-- Tarjeta Dinámica de la Celebración Seleccionada -->
-                <div id="contenedor-celebracion" class="bg-deliush-cream rounded-3xl p-6 sm:p-10 shadow-lg border border-deliush-pink max-w-5xl mx-auto space-y-8">
-                    <div class="text-center max-w-2xl mx-auto space-y-3">
-                        <span id="cel-badge" class="bg-deliush-accent text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Cumpleaños</span>
-                        <h3 id="cel-titulo" class="text-3xl font-extrabold text-deliush-brown">Pasteles y Repostería para Cumpleaños</h3>
-                        <p id="cel-descripcion" class="text-deliush-brown/80 leading-relaxed text-sm sm:text-base">Haz que cada año sea inolvidable con pasteles personalizados, diseños divertidos, temáticos y sabores artesanales que encantarán a todos tus invitados.</p>
-                    </div>
-
-                    <!-- Galería de fotos dinámica de la celebración -->
-                    <div id="cel-galeria" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
-                        <!-- Las imágenes se cargan dinámicamente con JavaScript -->
-                    </div>
-
-                    <div class="text-center pt-4">
-                        <button onclick="cambiarVista('contacto')" class="bg-deliush-accent hover:bg-deliush-rose text-white font-bold py-3.5 px-8 rounded-full shadow-md transition cursor-pointer">
-                            Cotizar esta Celebración
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ================= VISTA 3: GALERÍAS (Puras fotos limpias sin nombres) ================= -->
-        <section id="vista-galerias" class="view-section hidden py-16 bg-deliush-cream min-h-[80vh]">
+        <!-- ================= VISTA 2: SABORES Y BARRAS ================= -->
+        <section id="vista-sabores" class="view-section hidden py-16 bg-white min-h-[80vh]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-bold text-deliush-accent uppercase tracking-widest bg-deliush-pink/50 px-3 py-1 rounded-full">Portafolio Visual</span>
-                    <h2 class="text-3xl sm:text-5xl font-bold text-deliush-brown mt-2 mb-4">Galería de Fotos</h2>
-                    <p class="text-deliush-brown/80">Explora la colección fotográfica completa de nuestros trabajos recientes:</p>
+                    <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Catálogo Gourmet</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-popcorn-brown mt-2 mb-4">Sabores y Combinaciones</h2>
+                    <p class="text-popcorn-brown/80">Conoce nuestra variedad de palomitas empacadas y listas para disfrutar:</p>
                 </div>
 
-                <!-- Grilla de Imágenes Limpias (Sin textos adicionales debajo) -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-basquetball.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                <!-- Grilla con las 9 Imágenes de Sabores -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="chipotle.jpg" alt="Chipotle" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Chipotle</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-gimnasio.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="habanero.jpg" alt="Habanero" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Habanero</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-kawaii.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="doritos-incognita.jpg" alt="Doritos Incógnita" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Doritos Incógnita</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-floral-verde.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="naturales.jpg" alt="Naturales" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Naturales</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-llama.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="mantequilla.jpg" alt="Mantequilla" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Mantequilla</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-rey.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="flaminghot.jpg" alt="Flaming Hot" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Flaming Hot</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-cumpleanos.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="queso-picoso.jpg" alt="Queso Picoso" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Queso Picoso</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-leon.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="queso-sanor-nachos.jpg" alt="Queso Sabor Nachos" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Queso Sabor Nachos</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="baby-shower.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
+                    <div class="bg-popcorn-cream rounded-3xl overflow-hidden shadow-sm border border-popcorn-gold/30 hover:shadow-xl transition flex flex-col">
+                        <img src="queso-sabor-pizzerola.jpg" alt="Queso Sabor Pizzerola" class="h-80 w-full object-cover">
+                        <div class="p-5 text-center"><h3 class="font-black text-xl text-popcorn-brown">Queso Sabor Pizzerola</h3></div>
                     </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-fresa2.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="galletas halloween.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="reposteria1.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-luis-aguilar.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-winnie.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-rayo.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-redvelvet.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-chanel.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-rosa.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-xvanos.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-osito.jpeg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <!-- Nuevas fotos añadidas sin nombres -->
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-dragonball.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pan-navidad.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="galletas-osito.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pan-de-muerto.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-espacio.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-bobesponja.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="pastel-badbunny.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="galletas-gengibre.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="galleta-snowman.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 duration-300 bg-white">
-                        <img src="galleta-arbol-navidad.jpg" alt="Deliush Bakes" class="h-64 w-full object-cover">
-                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="button" onclick="cambiarVista('contacto')" class="bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition cursor-pointer">
+                        Cotizar mi combinación favorita
+                    </button>
                 </div>
             </div>
         </section>
 
-
-        <!-- ================= VISTA 4: CONTACTO ================= -->
+        <!-- ================= VISTA 3: CONTACTO / COTIZADOR ================= -->
         <section id="vista-contacto" class="view-section hidden py-16 bg-white min-h-[80vh]">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-deliush-cream rounded-3xl p-8 sm:p-12 shadow-xl border border-deliush-pink">
-                    <div class="text-center mb-8">
-                        <h2 class="text-3xl font-bold text-deliush-brown">Solicita tu Presupuesto Personalizado</h2>
-                        <p class="text-deliush-brown/80 mt-2">Déjanos tus datos y te ayudaremos a diseñar el pastel ideal.</p>
-                    </div>
-
-                    <div id="form-success" class="hidden bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded-xl mb-6 text-center font-medium">
-                        ¡Datos guardados correctamente! Haz clic en el botón flotante "Cotiza ahora" para enviar tu mensaje por WhatsApp.
-                    </div>
-
-                    <form id="lead-form" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="nombre" class="block text-sm font-semibold text-deliush-brown mb-2">Nombre completo *</label>
-                                <input type="text" id="nombre" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-deliush-accent outline-none bg-white" placeholder="Tu nombre">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-semibold text-deliush-brown mb-2">Correo electrónico *</label>
-                                <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-deliush-accent outline-none bg-white" placeholder="tu@email.com">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="telefono" class="block text-sm font-semibold text-deliush-brown mb-2">Teléfono / WhatsApp *</label>
-                                <input type="tel" id="telefono" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-deliush-accent outline-none bg-white" placeholder="Ej. 5539494722">
-                            </div>
-                            <div>
-                                <label for="evento" class="block text-sm font-semibold text-deliush-brown mb-2">Tipo de evento</label>
-                                <select id="evento" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-deliush-accent outline-none bg-white">
-                                    <option value="Cumpleaños">Cumpleaños</option>
-                                    <option value="San Valentín">San Valentín</option>
-                                    <option value="Halloween">Halloween</option>
-                                    <option value="Navidad">Navidad</option>
-                                    <option value="Baby Showers">Baby Showers</option>
-                                    <option value="Revelación de género">Revelación de género</option>
-                                    <option value="Bodas">Bodas</option>
-                                    <option value="XV Años">XV Años</option>
-                                    <option value="Día de las Madres">Día de las Madres</option>
-                                    <option value="Aniversarios">Aniversarios</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="mensaje" class="block text-sm font-semibold text-deliush-brown mb-2">Detalles del pedido</label>
-                            <textarea id="mensaje" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-deliush-accent outline-none bg-white" placeholder="Número de personas, sabor, fecha..."></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-deliush-accent hover:bg-deliush-rose text-white font-bold py-4 rounded-xl shadow-md transition cursor-pointer">
-                            Guardar Registro y Preparar Cotización
-                        </button>
-                    </form>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-bold text-popcorn-amber uppercase tracking-widest bg-popcorn-soft px-3 py-1 rounded-full">Haz tu pedido</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-popcorn-brown mt-2 mb-3">Cotiza tus Palomitas</h2>
+                    <p class="text-popcorn-brown/80">Completa los datos de tu pedido y te atenderemos de inmediato por WhatsApp.</p>
                 </div>
+
+                <form id="quote-form" onsubmit="enviarWhatsApp(event)" class="bg-popcorn-cream p-8 rounded-3xl shadow-lg border border-popcorn-gold/30 space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nombre" class="block text-sm font-bold text-popcorn-brown mb-2">Tu Nombre *</label>
+                            <input type="text" id="nombre" required class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber" placeholder="Escribe tu nombre">
+                        </div>
+                        <div>
+                            <label for="telefono" class="block text-sm font-bold text-popcorn-brown mb-2">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="telefono" required class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber" placeholder="Ej. 5539494722">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="modalidad" class="block text-sm font-bold text-popcorn-brown mb-2">Modalidad de Pedido:</label>
+                            <select id="modalidad" class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber">
+                                <option value="Bolsitas Individuales">Bolsitas Individuales</option>
+                                <option value="Barra de Palomitas">Barra de Palomitas</option>
+                                <option value="Paquete Mixto para Evento">Paquete Mixto para Evento</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cantidad" class="block text-sm font-bold text-popcorn-brown mb-2">Cantidad de Bolsas o Invitados aprox *</label>
+                            <input type="number" id="cantidad" required class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber" placeholder="Ej. 50">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="detalles" class="block text-sm font-bold text-popcorn-brown mb-2">Sabores que te interesan y fecha:</label>
+                        <textarea id="detalles" rows="3" class="w-full bg-white border border-popcorn-gold/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-popcorn-amber" placeholder="Ej. Me interesan 30 bolsas de Queso Nachos, 20 de Flaming Hot y 20 de Mantequilla..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-popcorn-amber hover:bg-popcorn-brown text-white font-bold py-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 text-lg cursor-pointer">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>Enviar Cotización por WhatsApp</span>
+                    </button>
+                </form>
             </div>
         </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-deliush-brown text-deliush-cream py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <img src="logo.jpg" alt="Deliush Bakes Logo" class="h-16 w-16 rounded-full mx-auto object-cover border-2 border-deliush-pink">
-            <h3 class="text-2xl font-bold text-deliush-pink">Deliush Bakes</h3>
-            <p class="text-sm text-deliush-pink/80">Repostería Fina y Pan Artesanal</p>
-            <div class="flex justify-center space-x-6 text-xl">
-                <a href="https://www.instagram.com/deliushbakes/" target="_blank" rel="noopener noreferrer" class="hover:text-deliush-rose transition"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5215539494722" target="_blank" rel="noopener noreferrer" class="hover:text-deliush-rose transition"><i class="fab fa-whatsapp"></i></a>
+    <footer class="bg-popcorn-brown text-popcorn-cream py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left space-y-4 sm:space-y-0">
+            <div>
+                <span class="text-xl font-black tracking-wider text-white uppercase">Don Pepe Popcorn</span>
+                <p class="text-xs text-popcorn-cream/70 mt-1">Llevando el sabor y la diversión crujiente a cada celebración.</p>
             </div>
-            <p class="text-xs text-deliush-pink/60 pt-4">© 2026 Deliush Bakes. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 text-xl">
+                <a href="https://wa.me/5215539494722" target="_blank" class="hover:text-popcorn-gold transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP (Configurado con el número 5539494722) -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="openWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 px-6 rounded-full shadow-2xl flex items-center space-x-3 transition transform hover:scale-105 cursor-pointer">
-            <i class="fab fa-whatsapp text-2xl"></i>
-            <span class="text-base">Cotiza ahora</span>
-        </button>
-    </div>
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/5215539494722?text=¡Hola!%20Me%20interesa%20cotizar%20una%20barra%20de%20palomitas%20para%20mi%20evento." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition transform hover:scale-110" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <!-- SCRIPTS DE CONTROL SPA Y CELEBRACIONES DINÁMICAS -->
+    <!-- JAVASCRIPT DE CONTROL UI Y LOCALSTORAGE -->
     <script>
-        // Datos e imágenes específicos para cada celebración (estilo Lony Kuchen)
-        const datosCelebraciones = {
-            "cumpleanos": {
-                badge: "Cumpleaños",
-                titulo: "Pasteles y Repostería para Cumpleaños",
-                descripcion: "Haz que cada año sea inolvidable con pasteles personalizados, diseños divertidos, temáticos y sabores artesanales que encantarán a todos tus invitados.",
-                imagenes: [
-                    { src: "pastel-cumpleanos.jpeg", titulo: "Estilo Ilustrado" },
-                    { src: "pastel-superheroes.jpeg", titulo: "Superhéroes Dúo" },
-                    { src: "pastel-rosa.jpeg", titulo: "Floral Elegante" },
-                    { src: "pastel-redvelvet.jpeg", titulo: "Naked Frutos Rojos" },
-                    { src: "pastel-gimnasio.jpeg", titulo: "Fitness & Gym" }
-                ]
-            },
-            "san-valentin": {
-                badge: "San Valentín",
-                titulo: "Especial San Valentín: Amor & Sabor",
-                descripcion: "Celebra el amor con detalles dulces, galletas decoradas a mano, fresas con chocolate y pasteles románticos diseñados para consentir a tu persona favorita.",
-                imagenes: [
-                    { src: "galletas-osito.jpg", titulo: "Galletas Artísticas" },
-                    { src: "pastel-fresas3.jpeg", titulo: "Fresas & Crema" },
-                    { src: "pastel-floral-verde.jpeg", titulo: "Botánico Romántico" },
-                    { src: "pastel-redvelvet.jpeg", titulo: "Red Velvet Pasión" },
-                    { src: "pastel-chanel.jpeg", titulo: "Lujo & Detalle" },
-                    { src: "pastel-fresa2.jpeg", titulo: "Cheesecake Romántico" }
-                ]
-            },
-            "halloween": {
-                badge: "Halloween",
-                titulo: "Edición Terroríficamente Deliciosa",
-                descripcion: "Postres artísticos, galletas decoradas con temática de temporada y pan de muerto artesanal para celebrar con un toque misterioso y dulce.",
-                imagenes: [
-                    { src: "galletas halloween.jpeg", titulo: "Galletas Halloween" },
-                    { src: "pan-de-muerto.jpg", titulo: "Pan de Muerto Tradicional" },
-                    { src: "pastel-luis-aguilar.jpeg", titulo: "Edición Especial" },
-                    { src: "pastel-rosa.jpeg", titulo: "Contraste Misterioso" }
-                ]
-            },
-            "navidad": {
-                badge: "Navidad",
-                titulo: "Magia Navideña y Cenas Decembrinas",
-                descripcion: "Disfruta el espíritu navideño con galletas de jengibre, postres temáticos y pasteles decorados con motivos invernales para compartir en familia.",
-                imagenes: [
-                    { src: "galleta-arbol-navidad.jpg", titulo: "Galleta Árbol Navideño" },
-                    { src: "galleta-snowman.jpg", titulo: "Galleta Muñeco de Nieve" },
-                    { src: "galletas-gengibre.jpg", titulo: "Galletas de Jengibre" },
-                    { src: "pan-navidad.jpg", titulo: "Panadería Navideña" },
-                    { src: "pastel-llama.jpeg", titulo: "Diseño Invernal 3D" }
-                ]
-            },
-            "baby-showers": {
-                badge: "Baby Showers",
-                titulo: "Tierno Recibimiento para tu Bebé",
-                descripcion: "Estaciones delicadas, tonos pastel, ositos tiernos y pasteles entrañables diseñados para celebrar la llegada del nuevo integrante de la familia.",
-                imagenes: [
-                    { src: "baby-shower.jpeg", titulo: "Zapatitos de Fondant" },
-                    { src: "pastel-winnie.jpeg", titulo: "Winnie Pooh Bosque" },
-                    { src: "pastel-rosa.jpeg", titulo: "Tonos Pastel Suaves" },
-                    { src: "pastel-leon.jpeg", titulo: "Safari León tierno" }
-                ]
-            },
-            "revelacion": {
-                badge: "Revelación de género",
-                titulo: "¡Niño o Niña? ¡Descúbrelo con Sabor!",
-                descripcion: "Sorprende a tus seres queridos cortando el pastel para revelar el color interior sorpresa que anunciará si es niño o niña.",
-                imagenes: [
-                    { src: "baby-shower.jpeg", titulo: "Sorpresa Ternura" },
-                    { src: "pastel-osito.jpeg", titulo: "Osito Revelación" },
-                    { src: "pastel-kawaii.jpeg", titulo: "Estilo Kawaii" },
-                    { src: "pastel-rosa.jpeg", titulo: "Magia y Color" }
-                ]
-            },
-            "bodas": {
-                badge: "Bodas",
-                titulo: "Elegancia Gourmet para tu Gran Día",
-                descripcion: "Pasteles de bodas imponentes, múltiples niveles, acabados sofisticados con flores naturales y un sabor fino que marcará el inicio de su historia.",
-                imagenes: [
-                    { src: "pastel-rosa.jpeg", titulo: "Romance Floral" },
-                    { src: "pastel-redvelvet.jpeg", titulo: "Naked Cake Bodas" },
-                    { src: "pastel-chanel.jpeg", titulo: "Sofisticación Alta" }
-                ]
-            },
-            "xv-anos": {
-                badge: "XV Años",
-                titulo: "Diseños de Ensueño para tus XV Años",
-                descripcion: "Haz que tu noche sea inolvidable con un pastel majestuoso, detalles personalizados y un diseño a la altura de esta gran celebración.",
-                imagenes: [
-                    { src: "pastel-xvanos.jpeg", titulo: "Elegancia Imperial" },
-                    { src: "pastel-chanel.jpeg", titulo: "Glamour Juvenil" },
-                    { src: "pastel-rey.jpeg", titulo: "Corona & Brillo" }
-                ]
-            },
-            "dia-madres": {
-                badge: "Día de las Madres",
-                titulo: "Consiente a Mamá en su Día",
-                descripcion: "Detalles florales, pasteles finos y repostería artesanal preparados con todo el amor para honrar a la reina del hogar.",
-                imagenes: [
-                    { src: "pastel-fresas3.jpeg", titulo: "Arreglo Frutal Dulce" },
-                    { src: "reposteria1.jpeg", titulo: "Tartaletas Finas" },
-                    { src: "pastel-espacio.jpg", titulo: "Especial Mamá" }
-                ]
-            },
-            "aniversarios": {
-                badge: "Aniversarios",
-                titulo: "Celebra el Amor con Sabor",
-                descripcion: "Pasteles románticos y elegantes para conmemorar los años maravillosos compartidos en pareja con un toque gourmet inolvidable.",
-                imagenes: [
-                    { src: "pastel-redvelvet.jpeg", titulo: "Amor Duradero" },
-                    { src: "pastel-chanel.jpeg", titulo: "Elegancia Clásica" },
-                    { src: "pastel-rosa.jpeg", titulo: "Flores y Celebración" }
-                ]
-            }
-        };
-
-        function actualizarCelebracion() {
-            const selector = document.getElementById('select-celebracion');
-            const valor = selector.value;
-            const info = datosCelebraciones[valor];
-
-            if (info) {
-                document.getElementById('cel-badge').innerText = info.badge;
-                document.getElementById('cel-titulo').innerText = info.titulo;
-                document.getElementById('cel-descripcion').innerText = info.descripcion;
-
-                const galeriaContainer = document.getElementById('cel-galeria');
-                let html = '';
-                info.imagenes.forEach(img => {
-                    html += `
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-                            <img src="${img.src}" alt="${img.titulo}" class="h-56 w-full object-cover">
-                            <div class="p-4 text-center">
-                                <h4 class="font-bold text-deliush-brown">${img.titulo}</h4>
-                            </div>
-                        </div>
-                    `;
-                });
-                galeriaContainer.innerHTML = html;
-            }
-        }
-
-        // Cargar por defecto la primera opción al iniciar
-        window.addEventListener('DOMContentLoaded', () => {
-            actualizarCelebracion();
-        });
-
-        // Control de Vistas SPA Router
         function cambiarVista(nombreVista) {
             document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
             const vistaActiva = document.getElementById(`vista-${nombreVista}`);
             if (vistaActiva) {
                 vistaActiva.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Menú móvil
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        function toggleMobileMenu() { mobileMenu.classList.add('hidden'); }
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
 
-        // Formulario y localStorage
-        const leadForm = document.getElementById('lead-form');
-        const formSuccess = document.getElementById('form-success');
-        leadForm.addEventListener('submit', function(e) {
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if(menu) menu.classList.add('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        function enviarWhatsApp(e) {
             e.preventDefault();
-            const leadData = {
-                nombre: document.getElementById('nombre').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                telefono: document.getElementById('telefono').value.trim(),
-                evento: document.getElementById('evento').value,
-                mensaje: document.getElementById('mensaje').value.trim(),
-                fecha: new Date().toISOString()
-            };
-            let leads = JSON.parse(localStorage.getItem('deliush_leads') || '[]');
-            leads.push(leadData);
-            localStorage.setItem('deliush_leads', JSON.stringify(leads));
-            formSuccess.classList.remove('hidden');
-            leadForm.reset();
-            setTimeout(() => formSuccess.classList.add('hidden'), 5000);
-        });
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const modalidad = document.getElementById('modalidad').value;
+            const cantidad = document.getElementById('cantidad').value;
+            const detalles = document.getElementById('detalles').value;
 
-        // Enlace WhatsApp con el número 5539494722
-        function openWhatsApp() {
-            const phoneNumber = "5215539494722";
-            let leads = JSON.parse(localStorage.getItem('deliush_leads') || '[]');
-            let msg = "¡Hola Deliush Bakes! Me gustaría cotizar un pastel personalizado.";
-            if(leads.length > 0) {
-                const l = leads[leads.length - 1];
-                msg = `¡Hola! Soy ${l.nombre}, me interesa un presupuesto para ${l.evento}.`;
-            }
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-    </script>
-</body>
-</html>
+            // Guardar prospecto en localStorage para revisión posterior
+            const prospecto = { nombre, telefono, modalidad, cantidad, detalles, fecha: new Date().toISOString() };
+            const prospectosGuardados = JSON.parse(localStorage.getItem('prospectos_palomitas') || '[]');
+            prospectosGuardados.push(prospecto);
+            localStorage.setItem('prospectos_palomitas', JSON.stringify(prospectosGuardados));
+
+            const mensaje = `¡Hola Don Pepe Popcorn! Me gustaría hacer un pedido:\n\n*Nombre:* ${nombre}\n*Teléfono:* ${
